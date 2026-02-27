@@ -517,8 +517,6 @@ function next_position(env::TMaze, pos::Tuple{Int,Int}, action::MazeAction)
     elseif pos == (1, 3)
         if action.direction isa East
             return (2, 3)  # Move to top middle
-        elseif action.direction isa South
-            return (2, 2)  # Move to middle junction
         else
             return pos     # Stay in place for other directions (hitting walls)
         end
@@ -537,9 +535,7 @@ function next_position(env::TMaze, pos::Tuple{Int,Int}, action::MazeAction)
 
         # Top right (3,3)
     elseif pos == (3, 3)
-        if action.direction isa South
-            return (2, 2)  # Move to middle junction
-        elseif action.direction isa West
+        if action.direction isa West
             return (2, 3)  # Move to top middle
         else
             return pos     # Stay in place for other directions (hitting walls)
